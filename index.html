@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookshop</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <h1>Yakov's Bookshop</h1>
+  <div class="filter-container">
+    <input type="text" id="filter-input" placeholder="Filter by title...">
+    <button id="clear-filter-button">Clear</button>
+  </div>
+  <div class="view-toggle-container">
+    <button id="toggle-view-button" class="toggle-view-button">Switch to Grid View</button>
+  </div>
+  <button id="add-book-button" class="add-button">Add Book</button>
+  <div id="book-table-view" class="book-view">
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Price</th>
+          <th>Rating</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+  <div id="book-grid-view" class="book-view hidden">
+    <div class="book-cards-container" id="book-cards-container"></div>
+  </div>
+  <div id="book-details-modal" class="modal hidden">
+    <div class="modal-content book-details-content">
+      <span class="close-button">&times;</span>
+      <h2>Book Details</h2>
+      <div id="book-details" class="book-details-container"></div>
+    </div>
+  </div>
+  <div id="add-book-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Add a New Book</h2>
+      <label for="add-book-title">Title:</label>
+      <input type="text" id="add-book-title" placeholder="Book Title">
+      <br>
+      <label for="add-book-price">Price:</label>
+      <input type="text" id="add-book-price" placeholder="Book Price">
+      <br>
+      <label for="add-book-rating">Rating:</label>
+      <input type="text" id="add-book-rating" placeholder="Book Rating (1-5)">
+      <br>
+      <label for="add-book-image">Book Cover:</label>
+      <input type="file" id="add-book-image">
+      <br>
+      <label for="filter-min-rating">Minimum Rating:</label>
+      <select id="filter-min-rating">
+        <option value="0">All Ratings</option>
+        <option value="1">1+</option>
+        <option value="2">2+</option>
+        <option value="3">3+</option>
+        <option value="4">4+</option>
+        <option value="5">5</option>
+      </select>
+
+      <button class="save-button">Save</button>
+      <button class="cancel-button">Cancel</button>
+    </div>
+  </div>
+
+  <div id="update-book-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Update Book Price</h2>
+      <label for="update-book-price">Price:</label>
+      <input type="text" id="update-book-price" placeholder="Book Price">
+      <br>
+      <button class="save-button">Save</button>
+      <button class="cancel-button">Cancel</button>
+    </div>
+  </div>
+  <div id="read-book-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Coming Soon...</h2>
+      <p>We are still working on this feature. Please wait a few more weeks and try clicking again later!</p>
+    </div>
+  </div>
+  <footer>
+    <div><strong>Expensive Books:</strong> <span id="expensive-books-count">0</span></div>
+    <div><strong>Average Books:</strong> <span id="average-books-count">0</span></div>
+    <div><strong>Cheap Books:</strong> <span id="cheap-books-count">0</span></div>
+  </footer>
+
+  <!-- Ensure book.service.js is loaded before book.controller.js -->
+  <script src="js/books.service.js"></script>
+  <script src="js/book.controller.js"></script>
+</body>
+
+</html>
